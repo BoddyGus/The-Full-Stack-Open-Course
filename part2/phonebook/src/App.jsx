@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Persons from './components/Persons'
 import PersonForm from './components/PersonFrom'
 import Filter from './components/Filter'
+import axios from 'axios'
 const App = () => {
   const [persons, setPersons] = useState([
     { name: 'Arto Hellas', number: '040-123456', id: 1 },
@@ -12,6 +13,10 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [filterWord, setFilterWord] = useState('')
+  const hook = () => {
+    axios.get('http://localhost:3001/persons').then(response => setPersons(response.data))
+  }
+  useEffect(hook, [])
   const handleNameChange = (event) => {
     setNewName(event.target.value)
   }
