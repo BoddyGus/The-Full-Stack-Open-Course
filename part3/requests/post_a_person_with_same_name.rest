@@ -1,0 +1,16 @@
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name": "Anton Sarlamov",
+    "number": "39-49-5101232"
+}
+
+###
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name": "Anton Sarlamov",
+    "number": "39-49-5181232"
+}
